@@ -2,21 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Contact information">
     <title>Vera Fesianava Haumea</title>
 
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krub:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="navigation-top" role="navigation">
+        <a href="/" aria-label="VF Portfolio">
+            <img src="img/logo.png" class="logo" role="img" alt="Logo Image">
+        </a>
+        <ul class="links-container">
+            <li class="link-item"><a href="#about-me">about me</a></li>
+            <li class="link-item"><a href="#experience">experience</a></li>
+            <li class="link-item"><a href="#connect">contact</a></li>
+        </ul>
+    </div>
+
     <header class="heading">
-        <img src="img/logo.png" class="logo" role="img" alt="Logo Image">
         <h1><strong>Vera Fesianava</strong></h1>
     </header>
+    <div></div>
     <section id="about-me" class="content-container">
         <h2>About</h2>
-        <p class="info">I'm someone who's really committed and loves getting things done.
+        <p class="paragraph">I'm someone who's really committed and loves getting things done.
         When it comes to software, I'm good at finding and fixing issues.
         Skilled in root cause analysis, troubleshooting, idea generation.
-        <p>Currently, I’m diving deeper into coding and learning JavaScript to improve my skills.</p>
+        <p class="paragraph">Currently, I’m diving deeper into coding and learning JavaScript to improve my skills.</p>
     </section>
     <section id="experience" class="content-container">
         <h2>Experience</h2>
@@ -30,8 +46,12 @@
     <section id="connect" class="content-container">
         <h2>Connect</h2>
         <ul>
-            <li class="info social-link"><a href="https://www.linkedin.com/in/vera-fesianava/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
-            <li class="info social-link"><a href="https://github.com/verafes" target="_blank" rel="noopener noreferrer">GutHub</a></li>
+            <li class="social-link">
+                <a href="https://www.linkedin.com/in/vera-fesianava/" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-linkedin"></i>Let's connect on LinkedIn</a></li>
+            <li class="social-link">
+                <a href="https://github.com/verafes" target="_blank" rel="noopener noreferrer">
+                    <i class="fa fa-github"></i>My projects on GutHub</a></li>
         </ul>
     </section>
 </body>
