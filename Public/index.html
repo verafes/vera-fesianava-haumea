@@ -12,21 +12,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Krub:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="navigation-top" role="navigation">
+    <div id="navigation-top" role="navigation">
         <a href="/" aria-label="VF Portfolio">
             <img src="img/logo.png" class="logo" role="img" alt="Logo Image">
         </a>
-        <ul class="links-container">
+        <ul class="nav-links">
             <li class="link-item"><a href="#about-me">about me</a></li>
             <li class="link-item"><a href="#experience">experience</a></li>
-            <li class="link-item"><a href="#connect">contact</a></li>
+            <li class="link-item"><a href="#skills">skills</a></li>
+            <li class="link-item"><a href="#projects">projects</a></li>
+            <li class="link-item"><a href="#connect">connect</a></li>
         </ul>
     </div>
 
     <header class="heading">
         <h1><strong>Vera Fesianava</strong></h1>
     </header>
-    <div></div>
     <section id="about-me" class="content-container">
         <h2>About</h2>
         <p class="paragraph">I'm someone who's really committed and loves getting things done.
@@ -37,11 +38,36 @@
     <section id="experience" class="content-container">
         <h2>Experience</h2>
         <ul>
-            <li class="info">Student at Code The Dream</li>
-            <li class="info">Hardware Tester at INTC, Ampcus Inc.</li>
-            <li class="info">Software QA Tester at Applause Inc.</li>
-            <li class="info">Graphic Designer at Children magazine</li>
+            <li class="info">
+                <div>Student at Code The Dream</div>
+                <div class="date">Jan 2024 - Present</div>
+            </li>
+            <li class="info">
+                <div>Hardware Tester at INTC, Ampcus Inc.</div>
+                <div class="date">Mar 2022 - Dec 2022</div>
+            </li>
+            <li class="info">
+                <div>Software QA Tester at Applause Inc.</div>
+                <div class="date">Jan 2019 - Mar 2022</div>
+            </li>
+            <li class="info">
+                <div>Graphic Designer at Children magazine</div>
+                <div class="date">Jan 2010 - Dec 2018</div>
+            </li>
         </ul>
+    </section>
+    <section id="skills" class="content-container">
+        <h2>skills</h2>
+        <ul>
+            <li class="info">Java Script, HTML, CSS</li>
+            <li class="info">Node.js, Rest API</li>
+            <li class="info">Python, Pytest, Django</li>
+            <li class="info">Playwright, Selenium</li>
+            <li class="info">Postman, MySQL, Git</li>
+        </ul>
+    </section>
+    <section id="projects" class="content-container">
+        <h2>projects</h2>
     </section>
     <section id="connect" class="content-container">
         <h2>Connect</h2>
