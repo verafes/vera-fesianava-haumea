@@ -86,6 +86,26 @@
                     <i class="fa fa-github"></i>My projects on GutHub</a></li>
         </ul>
     </section>
+    <section id="leave-message" class="content-container">
+        <h2>Leave a Message</h2>
+        <form id="messageForm" action="leave_message" autocomplete="on" onsubmit="onFormSubmit(event)">
+            <label for="form-user-name"></label>
+            <input type="text" name="usersName" id="form-user-name" required="true" placeholder="Name">
+            <label for="formEmail"></label>
+            <input type="text" name="email" id="formEmail" required="true" placeholder="Email">
+            <label for="formUserMessage"></label>
+            <textarea type="text" name="usersMessage" id="formUserMessage" rows="2" maxlength="250" required="true" placeholder="Message"></textarea>
+            <button type="Submit" class="button" name="submitButton">
+                Submit
+            </button>
+        </form>
+    </section>
+    <section id="messages" class="content-container">
+        <h2>Messages</h2>
+        <div class="message-container">
+            <ul></ul>
+        </div>
+    </section>
     <script src="js/index.js"></script>
 </body>
 </html>
