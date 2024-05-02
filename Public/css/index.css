@@ -55,7 +55,7 @@ body {
 }
 .content-container{
     margin: 1.25rem 18vw 3.125rem 18vw;
-    padding: 0 0 0.5rem 0.625rem;
+    padding: 0 1.5rem 0.5rem 0.625rem;
     border-top: 5px solid #d1fdfd;
     background: #f5f5f5;
     scroll-margin-top: 5rem;
@@ -122,6 +122,35 @@ a:hover {
 }
 .paragraph{
     padding: 0 0.65em 0.65em 0;
+}
+button {
+    display: inline-block;
+    background-color: #016565;
+    color: #d1fdfd;
+    border: none;
+    padding: 0.435rem 0.65rem;
+    margin-top: 0.5rem;
+    border-radius: 0.325rem;
+    font-weight: bold;
+    font-size: 1em;
+}
+button:hover {
+    background-color: #982525;
+}
+input[type="text"] {
+    width: 100%;
+    padding: 0.25rem 0.35rem;
+    margin: 0.25rem 0;
+    box-sizing: content-box;
+    font-family: "Krub", sans-serif;
+    letter-spacing: 1px;
+}
+textarea{
+    width: 100%;
+    padding: 0.25rem 0.35rem;
+    margin: 0.25rem 0;
+    box-sizing: content-box;
+    font-family: "Krub", sans-serif;
 }
 .footer-credit{
     background-color: #f5f5f5;
