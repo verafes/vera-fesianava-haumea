@@ -123,6 +123,15 @@ a:hover {
 .paragraph{
     padding: 0 0.65em 0.65em 0;
 }
+.projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    gap: 0 0.5em;
+    text-transform: capitalize;
+}
+.error-message {
+    color: red;
+}
 button {
     display: inline-block;
     background-color: #016565;
@@ -179,6 +188,9 @@ textarea{
     }
 }
 @media screen and (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
     #navigation-top {
         flex-direction: column;
         align-items: center;

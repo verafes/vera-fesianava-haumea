@@ -53,11 +53,6 @@ function validateEmail(email) {
 function onFormSubmit(event){
     event.preventDefault();
 
-    // const data = new FormData(event.target);
-    // const usersName = data.get("usersName");
-    // const email = data.get("email");
-    // const usersMessage = data.get("usersMessage");
-
     const usersName = event.target.usersName.value;
     const email = event.target.email.value;
     const usersMessage = event.target.usersMessage.value;
@@ -102,3 +97,54 @@ if (messageForms.length > 0) {
     console.log("messageForm: ", messageForm);
     messageForm.addEventListener("submit", onFormSubmit);
 }
+
+// to get projects list
+const username = "verafes";
+const url = `https://api.github.com/users/${username}/repos`;
+const projectSection = document.getElementById('projects');
+
+function fetchData() {
+    fetch(url)
+        .then(res => {
+        if (!res.ok) {
+            throw new Error(`Failed to fetch: ${res.status}`);
+        }
+        return res.json()
+    })
+        .then(data => {
+            // creating projects list
+            let projectList = projectSection.querySelector('ul');
+            if (!projectList) {
+                projectList = document.createElement('ul');
+                projectList.className = 'projects-list';
+                projectSection.appendChild(projectList);
+            }
+
+            data.forEach(repo => {
+                //skipping forked projects except one
+                if (repo.fork && repo.name !== 'luma_project') {
+                    return;
+                }
+                const project = document.createElement('li');
+                const projectLink = document.createElement('a');
+
+                projectLink.href = repo.html_url;
+                projectLink.target = '_blank';
+                projectLink.textContent = repo.name;
+                project.classList.add('info');
+
+                project.appendChild(projectLink);
+                projectList.appendChild(project);
+            });
+            console.log(projectList);
+        })
+        .catch(error => {
+            console.error('Error fetching repositories:', error.message);
+            // Displaying error message to the user
+            const errorMessage = document.createElement('p');
+            errorMessage.innerText = 'Failed to fetch repositories. Please try again later.';
+            errorMessage.classList.add('error-message');
+            projectSection.appendChild(errorMessage);
+        });
+}
+fetchData();
