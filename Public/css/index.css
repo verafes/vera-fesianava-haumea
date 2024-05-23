@@ -129,6 +129,16 @@ a:hover {
     gap: 0 0.5em;
     text-transform: capitalize;
 }
+#projects .info {
+    display: flow;
+    flex-direction: column;
+    font-weight: bold;
+}
+#projects p {
+    font-weight: normal;
+    padding-left: 1.5em;
+    text-transform: none;
+}
 .error-message {
     color: red;
 }
@@ -137,11 +147,11 @@ button {
     background-color: #016565;
     color: #d1fdfd;
     border: none;
-    padding: 0.435rem 0.65rem;
-    margin-top: 0.5rem;
+    padding: 0.35rem 0.65rem;
+    margin: 0.5rem 0.5rem;
     border-radius: 0.325rem;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 0.75em;
 }
 button:hover {
     background-color: #982525;
@@ -215,7 +225,7 @@ textarea{
     }
     .content-container{
         margin: 1.25rem 15vw 3.15rem;
-        scroll-margin-top: calc(16.35rem);
+        scroll-margin-top: calc(16rem);
     }
     .info {
         flex-wrap: wrap;
@@ -231,5 +241,13 @@ textarea{
     .skills-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
+    }
+}
+@media screen and (max-width: 415px) {
+    .content-container{
+        margin: 1.25rem 12vw 3.15rem;
+    }
+    #projects p {
+        padding: 0 1em 0 1em;
     }
 }
