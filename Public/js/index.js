@@ -1,3 +1,4 @@
+// footer copyright info
 const currentDate = new Date();
 const thisYear = currentDate.getFullYear();
 
@@ -9,6 +10,7 @@ copyright.innerHTML = `<small>Vera Fesianava &copy; ${thisYear}</small>`;
 footer.appendChild(copyright);
 document.body.appendChild(footer);
 
+//Filling the Skills section:
 let skills = [
     "Java Script", "HTML", "CSS", "Postman", "Rest API", "Python",
     "Pytest", "Playwright", "Selenium", "MySQL", "Git/GitHub", "Adobe Suite"
@@ -25,6 +27,7 @@ for (let skill of skills) {
     skillsList.appendChild(skillItem);
 }
 
+// Leave Message form submit section
 const messageSection = document.getElementById("messages");
 messageSection.hidden = true;
 
@@ -50,7 +53,7 @@ function validateEmail(email) {
 }
 
 // to submit the message form
-function onFormSubmit(event){
+function onFormSubmit(event) {
     event.preventDefault();
 
     const usersName = event.target.usersName.value;
@@ -77,6 +80,7 @@ function onFormSubmit(event){
 
     messageSection.hidden = false;
 
+    // Remove button
     const removeButton = document.createElement("button");
     removeButton.innerText = "Remove";
     removeButton.type = "button";
@@ -98,7 +102,7 @@ if (messageForms.length > 0) {
     messageForm.addEventListener("submit", onFormSubmit);
 }
 
-// to get projects list
+// Projects list handling
 const username = "verafes";
 const url = `https://api.github.com/users/${username}/repos`;
 const projectSection = document.getElementById('projects');
@@ -106,12 +110,14 @@ const projectSection = document.getElementById('projects');
 function fetchData() {
     fetch(url)
         .then(res => {
-        if (!res.ok) {
-            throw new Error(`Failed to fetch: ${res.status}`);
-        }
-        return res.json()
-    })
+            if (!res.ok) {
+                throw new Error(`Failed to fetch: ${res.status}`);
+            }
+            return res.json()
+        })
         .then(data => {
+            // sorting projects in the list
+            data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
             // creating projects list
             let projectList = projectSection.querySelector('ul');
             if (!projectList) {
@@ -127,14 +133,22 @@ function fetchData() {
                 }
                 const project = document.createElement('li');
                 const projectLink = document.createElement('a');
+                const projectDesc = document.createElement('p');
 
                 projectLink.href = repo.html_url;
                 projectLink.target = '_blank';
                 projectLink.textContent = repo.name;
                 project.classList.add('info');
+                projectDesc.textContent = `${repo.description}`;
 
+                const date = new Date(repo.created_at);
+                const options = {year: 'numeric', month: 'short', day: 'numeric'};
+                const dateString = date.toLocaleDateString('en-US', options);
+
+                projectDesc.textContent += ` | ${dateString}`;
                 project.appendChild(projectLink);
                 projectList.appendChild(project);
+                project.appendChild(projectDesc);
             });
             console.log(projectList);
         })
@@ -147,4 +161,31 @@ function fetchData() {
             projectSection.appendChild(errorMessage);
         });
 }
+
 fetchData();
+
+// Connect section
+// to add mail link
+const mailLink = document.querySelector('.social-link:last-child a');
+
+mailLink.addEventListener('click', () => {
+    mailLink.href = `mailto:${username}@gmail.com`;
+});
+
+// to insert username to social links
+const lnUsername = "vera-fesianava/";
+const socialLinks = document.querySelectorAll('.social-link a');
+
+socialLinks.forEach(link => {
+    link.addEventListener('click', (event) => {
+        event.preventDefault();
+
+        let targetHref = link.href;
+        if (targetHref.endsWith("linkedin.com/in/")) {
+            targetHref += lnUsername;
+        } else if (targetHref.endsWith("github.com/")) {
+            targetHref += username;
+        }
+        window.open(targetHref, '_blank');
+    });
+});
