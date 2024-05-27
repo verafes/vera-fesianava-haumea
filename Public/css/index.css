@@ -1,14 +1,19 @@
+/* Global reset for all elements */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
 }
+
+/* Defining default font*/
 body {
     font-family: 'Krub', sans-serif;
     font-size: 1em;
     word-spacing: 1px;
 }
+
+/* Styles for the main navigation bar */
 #navigation-top{
     display: flex;
     position:sticky;
@@ -32,6 +37,8 @@ body {
     text-transform: capitalize;
     flex-wrap: wrap;
 }
+
+/* Styles for all links */
 .link-item {
     line-height: 1.25rem;
     border: transparent;
@@ -42,17 +49,22 @@ body {
     border-radius: 0.325rem;
     background-color: #d1fdfd;
 }
+
+/* Header Styles */
 .heading{
     display: flex;
     justify-content: center;
-    margin: 1.25em;
+    margin: 1em 18vw 0.35em 18vw;
 }
 .logo {
     width: 3.75rem;
     background-size: cover;
     display: block;
     margin-right: 1.25rem;
+    background-image: url('../img/logo.png');
 }
+
+/* Styles for content in all sections*/
 .content-container{
     margin: 1.25rem 18vw 3.125rem 18vw;
     padding: 0 1.5rem 0.5rem 0.625rem;
@@ -60,6 +72,8 @@ body {
     background: #f5f5f5;
     scroll-margin-top: 5rem;
 }
+
+/* Basic styling for lists */
 .info {
     display: flex;
     flex-direction: row;
@@ -69,6 +83,8 @@ body {
     content: "→";
     margin-right: 0.5em;
 }
+
+/* Styles for Skills section */
 #skills .info {
     display: flow;
     padding: 0.25rem 0;
@@ -83,15 +99,26 @@ body {
     min-width: fit-content;
     text-align: left;
 }
+
+/* Heading styles */
 h1, h2 {
     color: #016565;
     margin: 0.35em 0 0.35em 0;
     justify-self: left;
     text-transform: capitalize;
+    letter-spacing: 1px;
+    flex: 1;
 }
+h1 {
+    text-align: center;
+}
+
+/* Removing default list-style for unordered list items */
 ul li {
     list-style-type: none;
 }
+
+/* Grid styling for Experience section */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -106,6 +133,8 @@ ul li {
     flex-direction: column;
     padding-left: inherit;
 }
+
+/* Basic styling for links */
 a {
     cursor: pointer;
     color: black;
@@ -113,6 +142,8 @@ a {
 a:hover {
     color: #982525;
 }
+
+/* Social media styling */
 .social-link {
     padding-right: 2em;
     display: inline;
@@ -120,9 +151,13 @@ a:hover {
 .fa{
     padding-right: 0.65em;
 }
+
+/* Basic styling for paragraphs */
 .paragraph{
     padding: 0 0.65em 0.65em 0;
 }
+
+/* Styling for Projects list */
 .projects-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
@@ -139,9 +174,13 @@ a:hover {
     padding-left: 1.5em;
     text-transform: none;
 }
+
+/* Style for error messages on UI */
 .error-message {
     color: red;
 }
+
+/* Styling for buttons and inputs */
 button {
     display: inline-block;
     background-color: #016565;
@@ -154,7 +193,11 @@ button {
     font-size: 0.75em;
 }
 button:hover {
+    outline: none;
     background-color: #982525;
+}
+#submit-button{
+    margin-left: 0;
 }
 input[type="text"] {
     width: 100%;
@@ -171,36 +214,106 @@ textarea{
     box-sizing: content-box;
     font-family: "Krub", sans-serif;
 }
+
+/* Styling for editing messages*/
+.edit-mode {
+    background-color: #fff;
+    color: #000;
+}
+
+/* Styling for footer credits */
 .footer-credit{
     background-color: #f5f5f5;
     text-align: center;
     padding-bottom: 0.2em;
 }
 
+/* Dark mode styling */
+.dark-button {
+    float: right;
+    width: max-content;
+    position: fixed;
+    right: 0.25rem;
+    background-color: #016565;
+}
+/* Logo for dark mode */
+.dark-mode .content-container,
+.dark-mode #projects a,
+.dark-mode #connect a,
+.dark-mode #messages a,
+.dark-mode .link-item:hover,
+.dark-mode .footer-credit {
+    background: #5c5c5c;
+}
+.dark-mode #logo-img {
+    content: url('../img/logo-light.png');
+}
+.dark-mode a:hover {
+    background: #5c5c5c;
+    color: #f89c9c;
+}
+.dark-mode,
+.dark-mode a,
+.dark-mode h1,
+.dark-mode #navigation-top,
+.dark-mode button,
+.dark-mode label {
+    background-color: #000;
+    color: #f5f5f5;
+    animation: none;
+}
+.dark-mode button:hover {
+    outline: none;
+    background-color: #982525;
+}
+.dark-mode h2 {
+    color: #d1fdfd;
+}
+/* Dark mode styling for message entry */
+.dark-mode input,
+.dark-mode textarea,
+.dark-mode #leave-message textarea,
+.dark-mode #leave-message input[type="text"]
+{
+    color: #000;
+    background-color: #f5f5f5;
+}
+
+/* Responsive styles for smaller screens
+ for all device sizes (mobile, tablet, desktop, etc.)*/
 @media screen and (max-width: 1800px) {
+    /* Adjusting grid layout */
     .grid-container {
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     }
 }
+
 @media screen and (max-width: 925px) {
+    /* Adjusting column count for skills list */
     .skills-list {
         column-count: 1;
     }
 }
 @media screen and (max-width: 850px) {
+    /* Adjusting for social links */
     .social-link {
         display: block;
         padding-bottom: 0.375em;
     }
+    /* Adjusting grid layout */
     .skills-list {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
     }
 }
+/* Displaying on narrow web and mobile windows
+with Labeled hamburger menu */
 @media screen and (max-width: 600px) {
+    /* Adjusting font size */
     body {
         font-size: 14px;
     }
+    /* Adjusting navigation links for vertical layout */
     #navigation-top {
         flex-direction: column;
         align-items: center;
@@ -219,10 +332,13 @@ textarea{
         padding: 0.25em;
         font-size: 1em;
     }
+    /* Adjustments to logo placement */
     .logo {
         margin-bottom: 0.5em;
         margin-right: 0;
     }
+
+    /* Adjustments for content container */
     .content-container{
         margin: 1.25rem 15vw 3.15rem;
         scroll-margin-top: calc(16rem);
@@ -234,6 +350,8 @@ textarea{
         padding-right: 1em;
         padding-left: 1.4em;
     }
+
+    /* Grid layout adjustments */
     .grid-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -243,10 +361,12 @@ textarea{
         grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr));
     }
 }
+/* Displaying on narrow Mobile Phones screens */
 @media screen and (max-width: 415px) {
     .content-container{
         margin: 1.25rem 12vw 3.15rem;
     }
+    /* Adjustments for paragraphs */
     #projects p {
         padding: 0 1em 0 1em;
     }

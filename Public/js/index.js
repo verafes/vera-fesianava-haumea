@@ -33,18 +33,46 @@ messageSection.hidden = true;
 
 // to remove submitted message from Messages section
 function onRemoveButton(event) {
-    console.log("on Remove");
     const entry = event.target.parentNode;
     entry.remove();
 
     const messageSection = document.getElementById("messages");
     const messageList = messageSection.getElementsByTagName("li");
-    console.log(messageList);
-    console.log(messageList.length);
+
     if (messageList.length === 0) {
         messageSection.hidden = true;
         messageSection.style.display = 'none';
     }
+}
+
+// to edit submitted message
+function onEditButton(event) {
+    const entry = event.target.parentNode;
+    const editMessage = entry.querySelector("span");
+    const saveButton = entry.querySelector("#save-button");
+    const editButton = event.target;
+
+    editMessage.contentEditable = "true";
+    editMessage.focus();
+    editMessage.style.padding = "5px";
+    editMessage.classList.add('edit-mode')
+
+    saveButton.style.display = "initial";
+    editButton.style.display = "none";
+}
+
+// to save edited message
+function onSaveButton(event) {
+    const entry = event.target.parentNode;
+    const editMessage = entry.querySelector("span");
+    const editButton = entry.querySelector("#edit-button");
+    const saveButton = event.target;
+
+    editMessage.contentEditable = false;
+    editMessage.classList.remove('edit-mode');
+
+    editButton.style.display = "initial";
+    saveButton.style.display = "none";
 }
 
 function validateEmail(email) {
@@ -64,13 +92,9 @@ function onFormSubmit(event) {
         alert("Please enter a valid email address.");
         return;
     }
-    console.log("Name: ", usersName);
-    console.log("Email: ", email);
-    console.log("Message: ", usersMessage);
 
     const messageSection = document.getElementById("messages");
     const messageList = messageSection.querySelector("ul");
-    console.log("messageList: ", messageList);
 
     const newMessage = document.createElement("li");
     newMessage.innerHTML = `
@@ -86,8 +110,24 @@ function onFormSubmit(event) {
     removeButton.type = "button";
     removeButton.id = "remove-button";
     removeButton.addEventListener("click", onRemoveButton);
-    console.log("removeButton: ", removeButton);
 
+    // Edit and Save buttons
+    const editButton = document.createElement("button");
+    editButton.innerText = "Edit";
+    editButton.type = "button";
+    editButton.id = "edit-button";
+
+    const saveButton = document.createElement("button");
+    saveButton.innerText = "Save";
+    saveButton.type = "button";
+    saveButton.id = "save-button";
+    saveButton.style.display = "none";
+
+    editButton.addEventListener("click", onEditButton);
+    saveButton.addEventListener("click", onSaveButton);
+
+    newMessage.appendChild(editButton);
+    newMessage.appendChild(saveButton);
     newMessage.appendChild(removeButton);
     messageList.appendChild(newMessage);
 
@@ -95,10 +135,8 @@ function onFormSubmit(event) {
 }
 
 const messageForms = document.getElementsByName("leave_message")
-console.log("messageForms: ", messageForms);
 if (messageForms.length > 0) {
     const messageForm = messageForms[0];
-    console.log("messageForm: ", messageForm);
     messageForm.addEventListener("submit", onFormSubmit);
 }
 
@@ -150,7 +188,6 @@ function fetchData() {
                 projectList.appendChild(project);
                 project.appendChild(projectDesc);
             });
-            console.log(projectList);
         })
         .catch(error => {
             console.error('Error fetching repositories:', error.message);
@@ -189,3 +226,8 @@ socialLinks.forEach(link => {
         window.open(targetHref, '_blank');
     });
 });
+
+function darkMode() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+}
