@@ -9,7 +9,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
-    <link rel="manifest" href="img/site.webmanifest">
+    <link rel="manifest" href="site.webmanifest">
 
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -20,7 +20,7 @@
 <body>
     <div id="navigation-top" role="navigation">
         <a href="/" aria-label="VF Portfolio">
-            <img src="img/logo.png" class="logo" role="img" alt="Logo Image">
+            <img src="img/logo.png" class="logo" id="logo-img" role="img" alt="Logo Image">
         </a>
         <ul class="nav-links">
             <li class="link-item"><a href="#about-me">about me</a></li>
@@ -30,7 +30,14 @@
             <li class="link-item"><a href="#connect">connect</a></li>
         </ul>
     </div>
-
+    <div>
+        <button onclick="darkMode()" class="dark-button">
+            <i class="fa fa-moon-o" aria-hidden="true"></i>/<i
+                class="fa fa-sun-o"
+                aria-hidden="true"
+        ></i>
+        </button>
+    </div>
     <header class="heading">
         <h1><strong>Vera Fesianava</strong></h1>
     </header>
@@ -106,7 +113,7 @@
             <input type="text" name="email" id="formEmail" required="true" placeholder="Email">
             <label for="formUserMessage"></label>
             <textarea type="text" name="usersMessage" id="formUserMessage" rows="2" maxlength="250" required="true" placeholder="Message"></textarea>
-            <button type="Submit" class="button" name="submitButton">
+            <button id="submit-button" type="Submit" class="button" name="submitButton">
                 Submit
             </button>
         </form>
